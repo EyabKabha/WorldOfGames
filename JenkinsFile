@@ -18,7 +18,7 @@ pipeline {
         }
         stage("Test"){
             steps{
-                bat ''
+                echo 'Hello'
             } 
         }
         stage("Finalize"){
