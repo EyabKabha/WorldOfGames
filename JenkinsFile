@@ -26,12 +26,6 @@ pipeline {
                 bat 'docker-compose up'
             } 
         }
-        post {
-            always {
-              junit(
-                allowEmptyResults: true,
-                testResults: '**target/test-reports/TEST-*.xml')
-        }
     }
     }
 }
