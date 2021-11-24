@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    stages{
+        stage("Checkout"){
+            steps{
+                git branch: 'main' , url:'https://github.com/EyabKabha/WorldOfGames.git'
+            }
+        }
+        stage("Build"){
+            steps{
+                bat 'docker build -t worldofgames .'
+            }
+        }
+        stage("Run"){
+            steps{
+                bat 'docker run -p 8777:8777 worldofgames'
+            }
+        }
+        stage("Test"){
+            steps{
+                bat ''
+            } 
+        }
+        stage("Finalize"){
+            steps{
+                bat 'docker-compose up'
+            } 
+        }
+        post {
+            always {
+              junit(
+                allowEmptyResults: true,
+                testResults: '**target/test-reports/TEST-*.xml')
+        }
+    }
+    }
+}
