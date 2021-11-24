@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  worldofgames:
+    build: ./
+    command: python MainScores.py
+    image: eyab/eyabtest/worldofgames
+    ports:
+      - 8001:8001
