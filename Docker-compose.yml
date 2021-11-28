@@ -3,7 +3,7 @@ version: '3'
 services:
   worldofgames:
     build: ./
-    command: python MainScores.py
+    # command: python MainScores.py
     image: worldofgames
     ports:
       - 8777:8777
