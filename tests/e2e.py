@@ -19,9 +19,9 @@ def test_scores_service(url_test):
 
 def main_function():
     flag = False
-    if(test_scores_service('http://10.0.0.13:5001/') == flag):
+    if(test_scores_service('http://10.0.0.13:8777/') == flag):
         return -1
     else:
         return 0
 
-print(main_function())
+main_function()

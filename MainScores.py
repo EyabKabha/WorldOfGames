@@ -29,4 +29,4 @@ def score_server():
     else:
         return render_template('index.html', content=final_score)
 
-app.run(port=8001,host="0.0.0.0", debug=True)
+app.run(port=8777,host="0.0.0.0", debug=True)
