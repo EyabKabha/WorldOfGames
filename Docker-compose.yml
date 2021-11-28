@@ -4,6 +4,6 @@ services:
   worldofgames:
     build: ./
     command: python MainScores.py
-    image: eyab/eyabtest/worldofgames
+    image: worldofgames
     ports:
-      - 8001:8001
+      - 8777:8777
