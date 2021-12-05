@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Run"){
             steps{
-                bat 'docker run -p 8777:8777 worldofgames'
+                bat 'docker run -d -p 8777:8777 worldofgames'
             }
         }
         stage("Test"){
