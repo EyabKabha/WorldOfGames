@@ -27,7 +27,6 @@ pipeline {
         stage("Finalize"){
             steps{
                 bat 'echo $DOCKERHUB_CREDENTIALS_PSW, $DOCKER_CREDENTIALS_USR'
-                bat 'docker push eyabtest/worldofgames'
             } 
         }
     }
