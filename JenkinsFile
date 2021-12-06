@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_CREDENTIALS = credentials('worldofgames-dockerhub')
+        DOCKERHHUB_CREDENTIALS = credentials('worldofgames-dockerhub')
     }
     stages{
         stage("Checkout"){
@@ -26,12 +26,14 @@ pipeline {
         }
         stage("Finalize"){
             steps{
-                bat 'echo $DOCKERHUB_CREDENTIALS_PSW, $DOCKER_CREDENTIALS_USR'
+                bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKER_CREDENTIALS_USR --password-stdin'
+                bat 'docker push eyabtest/worldofgames'
             } 
         }
     }
     post {
         always{
+            bat 'docker rm -f $(docker ps -a -q)'
             bat 'docker logout'
         }
     }
