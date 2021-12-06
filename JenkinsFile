@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    enviroment {
+        DOCKER_CREDENTIALS = credentials('worldofgames-dockerhub')
+    }
     stages{
         stage("Checkout"){
             steps{
@@ -23,7 +26,8 @@ pipeline {
         }
         stage("Finalize"){
             steps{
-                bat 'docker-compose up'
+                bat 'echo $DOCKER_CREDENTIALS_PSW | docker login -u $DOCKER_CREDENTIALS_USR --password-stdin'
+                bat 'docker push eyabtest/worldofgames'
             } 
         }
     }
