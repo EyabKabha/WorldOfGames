@@ -24,16 +24,17 @@ pipeline {
                 bat 'python ./tests/e2e.py'
             } 
         }
+        stage("Login"){
+            bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKER_CREDENTIALS_USR --password-stdin'
+        }
         stage("Finalize"){
             steps{
-                bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKER_CREDENTIALS_USR --password-stdin'
                 bat 'docker push eyabtest/worldofgames'
             } 
         }
     }
     post {
         always{
-            bat 'docker rm -f $(docker ps -a -q)'
             bat 'docker logout'
         }
     }
