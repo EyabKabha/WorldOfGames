@@ -34,7 +34,7 @@ pipeline {
 	}
         stage("Finalize"){
             steps{
-                bat 'docker push eyabtest/worldofgames:latest'
+                bat 'docker push eyabtest/worldofgames'
             } 
         }
     }
