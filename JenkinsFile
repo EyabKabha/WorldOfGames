@@ -24,11 +24,14 @@ pipeline {
                 bat 'python ./tests/e2e.py'
             } 
         }
-		stage('Login') {
-			steps {
-				bat 'docker login -u eyabtest -p JuryRashid99'
-			}
+	stage('Login') {
+		steps {
+		withCredentials([string(credentialsId: 'eyabtest', variable: 'dockerhubpwd')]) {
+		bat 'docker login -u eyabtest -p ${dockerhubpwd}'
 		}
+		
+ 	    }
+	}
         stage("Finalize"){
             steps{
                 bat 'docker push eyabtest/worldofgames'
