@@ -24,7 +24,7 @@ pipeline {
 	stage('Login to Docker Hub') {
 		steps {
 		withCredentials([string(credentialsId: 'eyabtest', variable: 'dockerhubpwd')]) {
-		bat "echo docker login -u eyabtest -p ${dockerhubpwd}"
+		bat "docker login -u eyabtest -p ${dockerhubpwd}"
 		}
 		
  	    }
