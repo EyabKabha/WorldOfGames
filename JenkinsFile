@@ -11,7 +11,7 @@ pipeline {
         }
         stage("Build"){
             steps{
-                bat 'docker build -t eyabtest/worldofgames .'
+                bat 'docker build -t worldofgames .'
             }
         }
         stage("Run"){
