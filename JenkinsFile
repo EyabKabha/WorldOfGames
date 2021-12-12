@@ -24,11 +24,11 @@ pipeline {
                 bat 'python ./tests/e2e.py'
             } 
         }
-        stage("Login"){
-            steps{
-            bat 'echo JuryRashid99 | docker login -u eyabtest --password-stdin'
-            }
-        }
+		stage('Login') {
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
         stage("Finalize"){
             steps{
                 bat 'docker push eyabtest/worldofgames'
