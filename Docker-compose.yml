@@ -1,5 +1,5 @@
 version: '3'
-
+#configure the application's services. Then, with a single command, we can start all the services from the configuration.
 services:
   worldofgames:
     build: ./
