@@ -8,7 +8,7 @@ def score_server():
     try:
         error_msg = ''
         #read the score file
-        read_current_score = open('/WorldofGames/Scores.txt', 'r') 
+        read_current_score = open('Scores.txt', 'r') 
         get_currentt_score = read_current_score.readlines()
         length = len(get_currentt_score)
 

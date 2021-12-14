@@ -19,3 +19,5 @@ current_score=11
 current_score=20
 current_score=11
 current_score=11
+current_score=11
+current_score=8
